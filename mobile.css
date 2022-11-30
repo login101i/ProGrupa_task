@@ -6,18 +6,18 @@
 	}
 	.background,
 	.outer-circle {
-		position: absolute;
-		width: 200vw;
-		height: 200vw;
-		bottom: -10%;
+		position: fixed;
+		width: 1100px;
+		height: 1100px;
+		bottom: -20%;
 		left: 0%;
 	}
 	.inner-circle {
-		width: 50vw;
-		height: 50vw;
+		width: 300px;
+		height: 300px;
 		animation: 1s ease-in-out 0s scaleUp forwards;
-		position: absolute;
-				bottom: 0%;
+		position: fixed;
+		bottom: 0%;
 		left: 0%;
 	}
 	.container {
