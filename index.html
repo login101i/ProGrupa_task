@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- ------- Iconscout CSS ------- -->
+		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+
+		<!-- ------- CSS ------- -->
+		<link rel="stylesheet" href="styles.css" />
+		<link rel="stylesheet" href="mobile.css" media="only screen and (max-width:420px)" />
+
+		<link rel="icon" type="image/x-icon" href="./assets/images/progrupa-favicon.png" />
+		<title>Login ProGrupa</title>
+	</head>
+	<body onload="document.loginForm.email.focus()">
+		<div class="background outer-circle"></div>
+		<div class="background inner-circle"></div>
+
+		<div class="container">
+			<div class="form">
+				<div class="title-container"><span class="form-title">ProGrupa</span></div>
+
+				<form name="loginForm" action="#">
+					<div class="input-wrapper">
+						<span class="input-label">Email address</span>
+						<input
+							type="text"
+							placeholder="Enter your email"
+							required
+							name="email"
+							onchange="validateEmail(document.loginForm.email)"
+							id="emailValue"
+						/>
+					</div>
+					<div class="input-wrapper">
+						<span class="input-label"> Password</span>
+						<span class="input-text"> forgot your password ?</span>
+						<input type="password" class="password" placeholder="Enter your password" required id="passwordValue" />
+						<div class="icon-container"><i class="uil uil-eye-slash showHidePassword"></i></div>
+					</div>
+					<div class="input-field submit-button">
+						<input class="inactive" type="button" value="Log In" onClick="validateEmail()" />
+					</div>
+				</form>
+			</div>
+			<div class="alert">
+				<span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				You have entered an invalid email address.
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

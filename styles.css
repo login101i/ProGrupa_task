@@ -1,0 +1,226 @@
+/* ===== Google Font Import  ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Marhey:wght@300&display=swap');
+
+:root {
+	--white: #f9fafe;
+	--azure: #eff3fe;
+	--lightBlue: #e4ecfd;
+	--blue: #737cf5;
+	--textGrey: lightGrey;
+	--lightGrey: rgba(225, 225, 225, 0.409);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', cursive;
+	font-display: auto;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	background-color: var(--white);
+	font-size: 14px;
+	overflow: hidden;
+}
+
+.background,
+.outer-circle {
+	position: absolute;
+	width: 90vw;
+	height: 90vw;
+	border-radius: 50%;
+	background-color: var(--azure);
+	animation: 1.2s ease-in-out 0.5s scaleDown forwards;
+}
+.inner-circle {
+	width: 40vw;
+	height: 40vw;
+	background-color: var(--lightBlue);
+	animation: 1s ease-in-out 0s scaleUp forwards;
+}
+
+.container {
+	position: relative;
+	width: 50vw;
+	max-width: 600px;
+	min-width: 300px;
+	overflow: hidden;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+	border-radius: 6px !important;
+}
+
+.container .title-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 80px;
+	width: 100%;
+	background-color: var(--blue);
+	background: linear-gradient(0deg, rgba(249, 250, 254, 1) 0%, rgba(115, 124, 245, 1) 6%);
+}
+
+.container .form-title {
+	font-size: 30px;
+	color: var(--white);
+	font-family: Poppins;
+}
+
+.container form {
+	background-color: #fff;
+	padding: 10px 40px;
+	height: 330px;
+}
+
+.form .input-wrapper {
+	position: relative;
+	height: 40px;
+	width: 100%;
+	margin: 50px 0px;
+}
+form .input-label {
+	position: absolute;
+	top: -30px;
+	left: 0px;
+	font-weight: 500;
+}
+.form .input-text {
+	position: absolute;
+	top: -30px;
+	right: 0px;
+	color: var(--textGrey);
+	cursor: pointer;
+	transition: 0.2s;
+}
+.form .input-text:hover {
+	color: black;
+}
+
+.form .input-wrapper input {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	padding: 0 10px;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px solid var(--lightBlue);
+	outline: none;
+	transition: all 0.2s ease;
+}
+
+.form .input-wrapper input:is(:focus, :valid) {
+	border-bottom-color: var(--blue);
+}
+
+.form .input-wrapper input::placeholder {
+	color: var(--textGrey);
+}
+
+.form .input-wrapper .icon-container {
+	position: absolute;
+	right: 0px;
+	height: 100%;
+	width: 50px;
+	background-color: var(--lightGrey);
+	font-size: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.form .input-wrapper .icon-container i {
+	color: var(--blue);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-wrapper input:is(:focus, :valid) ~ i {
+	color: #737cf5;
+}
+
+.form .submit-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.form .submit-button input {
+	width: 120px;
+	border: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 2px;
+	padding: 5px 15px;
+	background-color: var(--blue);
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.form .submit-button input:hover {
+	background-color: #6770e4;
+}
+
+/* animations */
+
+@keyframes scaleDown {
+	0% {
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes scaleUp {
+	0% {
+		transform: scale(0.5);
+	}
+	100% {
+		transform: scale(1.5);
+	}
+}
+
+/* The alert message box */
+.alert {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	padding: 20px;
+	width: 100%;
+	background-color: #e8c24f; /* Red */
+	color: white;
+	opacity: 1;
+	transition: opacity 1s; /* 600ms to fade out */
+	/* display: none; */
+}
+
+/* The close button */
+.alert .close-btn {
+	margin-left: 15px;
+	color: white;
+	font-weight: 500;
+	float: right;
+	font-size: 30px;
+	line-height: 20px;
+	cursor: pointer;
+}
+.closebtn:hover {
+	color: var(--azure);
+}
+
+.visible {
+	display: block;
+}
+
+input .inactive {
+	background-color: grey;
+}
