@@ -7,9 +7,11 @@ const container = document.querySelector('.container'),
 const emailValue = document.getElementById('emailValue');
 const passwordValue = document.getElementById('passwordValue');
 const alertBox = document.querySelector('.alert');
+const loadAnimation = document.querySelector('.loaderr');
 
 const closeBtn = document.querySelector('.close-btn');
 const alert = closeBtn.parentElement;
+const loginButton2 = document.getElementById('loginButton');
 
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let screenWidth = window.innerWidth > 0 && window.innerWidth;
@@ -34,9 +36,14 @@ loginButton.addEventListener('click', () => {
 		return;
 	}
 	if (!emailValue.value || !passwordValue.value) {
-		renderErrorMessage('Please, fill in all inputs.');
+		renderErrorMessage('Please, fill in all inputs');
 	} else {
-		renderErrorMessage('Your password is incorrect.');
+		showLoader();
+		setTimeout(() => {
+			renderErrorMessage('Your password is incorrect');
+			// focus again on password input
+			document.loginForm.password.focus();
+		}, 2000);
 	}
 });
 
@@ -52,17 +59,24 @@ function renderErrorMessage(errorText) {
 	alert.appendChild(error);
 	alert.style.display = 'block';
 	alert.style.opacity = '1';
+
+	closeBtn.onclick = function () {
+		alert.style.opacity = '0';
+
+		// Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+		setTimeout(function () {
+			div.style.display = 'none';
+		}, 600);
+	};
 }
 
 //   js code to validate email format
 function validateEmail(passwordInput) {
-	console.log('validation');
 	if (passwordInput.value.match(mailFormat)) {
 		document.loginForm.email.focus();
-		console.log('email zgodny');
 		closeAlert();
 	} else {
-		return renderErrorMessage('You have entered an invalid email address.');
+		return renderErrorMessage('Invalid e-mail address');
 	}
 }
 
@@ -71,6 +85,16 @@ passwordValue.addEventListener('click', () => {
 });
 
 function closeAlert() {
-	alert.style.opacity = '0';
+	alert.style.display = 'none';
 	return false;
+}
+
+// mocking login data and showing load animation
+function showLoader() {
+	loginButton.style.display = 'none';
+	loadAnimation.style.display = 'flex';
+	setTimeout(() => {
+		loginButton.style.display = 'flex';
+		loadAnimation.style.display = 'none';
+	}, 2000);
 }

@@ -38,11 +38,22 @@
 					<div class="input-wrapper">
 						<span class="input-label"> Password</span>
 						<span class="input-text"> forgot your password ?</span>
-						<input type="password" class="password" placeholder="Enter your password" required id="passwordValue" />
+						<input
+							type="password"
+							class="password"
+							placeholder="Enter your password"
+							required
+							id="passwordValue"
+							name="password"
+						/>
 						<div class="icon-container"><i class="uil uil-eye-slash showHidePassword"></i></div>
 					</div>
 					<div class="input-field submit-button">
-						<input class="inactive" type="button" value="Log In" onClick="validateEmail()" />
+						<input type="button" value="Log In" onClick="validateEmail()" id="loginButton" />
+					</div>
+					<div class="loaderr"></div>
+					<div class="alert">
+						<span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
 					</div>
 				</form>
 			</div>
