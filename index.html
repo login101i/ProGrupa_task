@@ -51,7 +51,7 @@
 					<div class="input-field submit-button">
 						<input type="button" value="Log In" onClick="validateEmail()" id="loginButton" />
 					</div>
-					<div class="loaderr"></div>
+					<div class="loader"></div>
 					<div class="alert">
 						<span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
 					</div>
@@ -63,5 +63,7 @@
 		</div>
 
 		<script src="script.js"></script>
+		<script>document.documentElement.style.setProperty('--original-viewport-height', window.innerHeight+"px")</script>
+
 	</body>
 </html>

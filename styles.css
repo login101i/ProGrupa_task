@@ -30,6 +30,8 @@
 	}
 }
 
+/* ----- style --------- */
+
 :root {
 	--white: #f9fafe;
 	--azure: #eff3fe;
@@ -47,6 +49,7 @@
 	font-family: 'Poppins', cursive;
 	font-display: auto;
 }
+
 body {
 	display: flex;
 	align-items: center;
@@ -68,6 +71,7 @@ body {
 	background-color: var(--azure);
 	animation: 1.2s ease-in-out 0.5s scaleDown forwards;
 }
+
 .inner-circle {
 	width: 40vw;
 	height: 40vw;
@@ -117,12 +121,14 @@ body {
 	width: 100%;
 	margin: 30px 0px;
 }
+
 form .input-label {
 	position: absolute;
 	top: -30px;
 	left: 0px;
 	font-weight: 600;
 }
+
 .form .input-text {
 	position: absolute;
 	top: -30px;
@@ -204,6 +210,8 @@ form .input-label {
 	background-color: #6770e4;
 }
 
+
+
 /* The alert message box */
 .alert {
 	position: fixed;
@@ -219,7 +227,6 @@ form .input-label {
 	display: none;
 }
 
-/* The close button */
 .alert .close-btn {
 	margin-left: 15px;
 	color: white;
@@ -234,22 +241,23 @@ form .input-label {
 	color: var(--azure);
 }
 
+/* 
 .visible {
 	display: block;
 }
 
 input .inactive {
 	background-color: grey;
-}
+} */
 
-/* lodader */
+/* ------ loader animation  ------ */
 
-.loaderr {
+.loader {
 	align-items: center;
 	display: none;
 	justify-content: center;
 }
-.loaderr:after {
+.loader:after {
 	content: ' ';
 	width: 25px;
 	height: 25px;

@@ -7,7 +7,7 @@ const container = document.querySelector('.container'),
 const emailValue = document.getElementById('emailValue');
 const passwordValue = document.getElementById('passwordValue');
 const alertBox = document.querySelector('.alert');
-const loadAnimation = document.querySelector('.loaderr');
+const loadAnimation = document.querySelector('.loader');
 
 const closeBtn = document.querySelector('.close-btn');
 const alert = closeBtn.parentElement;
