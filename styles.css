@@ -30,7 +30,13 @@
 	}
 }
 
-/* ----- style --------- */
+@keyframes shadowAnimation {
+	100% {
+		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+	}
+}
+
+/* -------- styles --------- */
 
 :root {
 	--white: #f9fafe;
@@ -85,8 +91,9 @@ body {
 	max-width: 600px;
 	min-width: 300px;
 	overflow: hidden;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	border-radius: 6px;
+	outline: none;
+	animation: 1.2s ease-in-out 0.5s shadowAnimation forwards;
 }
 
 .container .title-container {
@@ -134,6 +141,7 @@ form .input-label {
 	top: -30px;
 	right: 0px;
 	color: var(--textGrey);
+	text-decoration: none;
 	cursor: pointer;
 	transition: 0.2s;
 }
@@ -161,25 +169,23 @@ form .input-label {
 	color: var(--textGrey);
 }
 
-.form .input-wrapper .icon-container {
+.form .input-wrapper .eye-icon-container {
 	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	right: 0px;
 	height: 100%;
 	width: 50px;
 	background-color: var(--lightGrey);
 	font-size: 25px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	color: var(--blue);
 	cursor: pointer;
 }
 
-.form .input-wrapper .icon-container i {
+/* .form .input-wrapper .show-hide-password-icon i {
 	color: var(--blue);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+} */
 
 .input-wrapper input:is(:focus, :valid) ~ i {
 	color: #737cf5;
@@ -210,8 +216,6 @@ form .input-label {
 	background-color: #6770e4;
 }
 
-
-
 /* The alert message box */
 .alert {
 	position: fixed;
@@ -240,15 +244,6 @@ form .input-label {
 .closebtn:hover {
 	color: var(--azure);
 }
-
-/* 
-.visible {
-	display: block;
-}
-
-input .inactive {
-	background-color: grey;
-} */
 
 /* ------ loader animation  ------ */
 

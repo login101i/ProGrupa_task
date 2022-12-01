@@ -7,9 +7,9 @@
 	.background,
 	.outer-circle {
 		position: fixed;
-		width: 1100px;
-		height: 1100px;
-		bottom: -30%;
+		width: 1200px;
+		height: 1200px;
+		bottom: -50%;
 		left: 0%;
 	}
 	.inner-circle {
@@ -17,7 +17,7 @@
 		height: 300px;
 		animation: 1s ease-in-out 0s scaleUp forwards;
 		position: fixed;
-		bottom: 0%;
+		bottom: -12%;
 		left: 0%;
 	}
 	.container {
@@ -27,6 +27,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		animation: none;
 	}
 
 	.container .alert {

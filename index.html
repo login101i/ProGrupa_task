@@ -4,25 +4,21 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 		<!-- ------- Iconscout CSS ------- -->
 		<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-
 		<!-- ------- CSS ------- -->
 		<link rel="stylesheet" href="styles.css" />
-		<link rel="stylesheet" href="mobile.css" media="only screen and (max-width:420px)" />
-
+		<link rel="stylesheet" href="mobileStyles.css" media="only screen and (max-width:420px)" />
 		<link rel="icon" type="image/x-icon" href="./assets/images/progrupa-favicon.png" />
 		<title>Login ProGrupa</title>
 	</head>
+
 	<body onload="document.loginForm.email.focus()">
 		<div class="background outer-circle"></div>
 		<div class="background inner-circle"></div>
-
 		<div class="container">
 			<div class="form">
 				<div class="title-container"><span class="form-title">ProGrupa</span></div>
-
 				<form name="loginForm" action="#">
 					<div class="input-wrapper">
 						<span class="input-label">Email address</span>
@@ -32,38 +28,34 @@
 							required
 							name="email"
 							onchange="validateEmail(document.loginForm.email)"
-							id="emailValue"
+							id="emailInput"
 						/>
 					</div>
 					<div class="input-wrapper">
 						<span class="input-label"> Password</span>
-						<span class="input-text"> forgot your password ?</span>
+						<a class="input-text" href="#"> forgot your password ?</a>
 						<input
 							type="password"
 							class="password"
 							placeholder="Enter your password"
 							required
-							id="passwordValue"
 							name="password"
+							id="passwordInput"
+							autocomplete="on"
 						/>
-						<div class="icon-container"><i class="uil uil-eye-slash showHidePassword"></i></div>
+						<div class="eye-icon-container"><i class="uil uil-eye-slash eye-icon"></i></div>
 					</div>
 					<div class="input-field submit-button">
 						<input type="button" value="Log In" onClick="validateEmail()" id="loginButton" />
 					</div>
+					<!-- button loader and alert info -->
 					<div class="loader"></div>
 					<div class="alert">
-						<span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
+						<span class="close-btn">&times;</span>
 					</div>
 				</form>
 			</div>
-			<div class="alert">
-				<span class="close-btn" onclick="this.parentElement.style.display='none'">&times;</span>
-			</div>
 		</div>
-
 		<script src="script.js"></script>
-		<script>document.documentElement.style.setProperty('--original-viewport-height', window.innerHeight+"px")</script>
-
 	</body>
 </html>
