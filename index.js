@@ -28,6 +28,7 @@ loginButton.addEventListener('click', () => {
 	closeAlert();
 	if (!emailInput.value.match(mailFormat) && emailInput.value) {
 		renderErrorMessage('Invalid email format');
+		return;
 	}
 	if (!emailInput.value || !passwordInput.value) {
 		renderErrorMessage('Please, fill in all fields');
@@ -42,7 +43,6 @@ loginButton.addEventListener('click', () => {
 passwordInput.addEventListener('click', () => {
 	if (!emailInput.value.match(mailFormat) && passwordInput.value) closeAlert();
 });
-
 
 // -----------------   functions   ----------------- //
 
