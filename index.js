@@ -12,7 +12,6 @@ const alert = closeBtn.parentElement;
 
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-
 //   js code to show/hide password and change icon
 eyeIconContainer.addEventListener('click', () => {
 	if (passwordField.type === 'password') {
@@ -32,7 +31,7 @@ loginButton.addEventListener('click', () => {
 		return;
 	}
 	if (!emailInput.value || !passwordInput.value) {
-		renderErrorMessage('Please, fill in all inputs');
+		renderErrorMessage('Please, fill in all fields');
 	} else {
 		showLoader();
 		setTimeout(() => {
@@ -44,7 +43,6 @@ loginButton.addEventListener('click', () => {
 passwordInput.addEventListener('click', () => {
 	if (!emailInput.value.match(mailFormat) && passwordInput.value) closeAlert();
 });
-
 
 // -----------------functions-----------------
 
@@ -74,7 +72,7 @@ function validateEmail(emailInput) {
 	if (emailInput.value.match(mailFormat)) {
 		closeAlert();
 	} else {
-		return renderErrorMessage('Invalid e-mail address');
+		return renderErrorMessage('Invalid email format');
 	}
 }
 

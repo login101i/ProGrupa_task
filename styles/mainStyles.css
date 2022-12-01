@@ -1,7 +1,7 @@
 /* ===== Google Font Import  ===== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Marhey:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Marhey:wght@300&family=Noto+Sans+Kayah+Li&display=swap');
 /* ----- animations --------- */
 
 @keyframes scaleDown {
@@ -37,22 +37,22 @@
 }
 
 /* -------- styles --------- */
-
 :root {
 	--white: #f9fafe;
 	--azure: #eff3fe;
 	--lightBlue: #e4ecfd;
-	--blue: #737cf5;
+	--blue: #656ddc;
 	--textGrey: lightGrey;
 	--lightGrey: rgba(225, 225, 225, 0.409);
-	--error: #e8c24f;
+	--errorColor: #e8c24f;
+	--transition: 0.2s all ease-in-out;
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Poppins', cursive;
+	font-family: 'Poppins', sans-serif;
 	font-display: auto;
 }
 
@@ -89,7 +89,7 @@ body {
 	position: relative;
 	width: 50vw;
 	max-width: 600px;
-	min-width: 300px;
+	min-width: 320px;
 	overflow: hidden;
 	border-radius: 6px;
 	outline: none;
@@ -103,13 +103,13 @@ body {
 	height: 80px;
 	width: 100%;
 	background-color: var(--blue);
-	background: linear-gradient(0deg, rgba(249, 250, 254, 1) 0%, rgba(115, 124, 245, 1) 6%);
+	background: linear-gradient(0deg, rgba(249, 250, 254, 1) 0%, var(--blue) 6%);
 }
 
 .container .form-title {
-	font-size: 30px;
+	font-size: 38px;
 	color: var(--white);
-	font-family: Poppins;
+	font-weight: 600;
 }
 
 .container form {
@@ -143,10 +143,11 @@ form .input-label {
 	color: var(--textGrey);
 	text-decoration: none;
 	cursor: pointer;
-	transition: 0.2s;
+	font-weight: 500;
+	transition: var(--transition);
 }
 .form .input-text:hover {
-	color: var(--blue);
+	filter: brightness(80%);
 }
 
 .form .input-wrapper input {
@@ -158,7 +159,7 @@ form .input-label {
 	border-radius: 5px;
 	border: 1px solid var(--lightBlue);
 	outline: none;
-	transition: all 0.2s ease;
+	transition: var(--transition);
 }
 
 .form .input-wrapper input:is(:focus, :valid) {
@@ -179,7 +180,7 @@ form .input-label {
 	width: 50px;
 	background-color: var(--lightGrey);
 	font-size: 25px;
-	color: var(--blue);
+	color: darkGrey;
 	cursor: pointer;
 }
 
@@ -203,17 +204,17 @@ form .input-label {
 	border: none;
 	color: #fff;
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: 600;
 	border-radius: 2px;
 	padding: 5px 15px;
 	background-color: var(--blue);
 	cursor: pointer;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-	transition: all 0.3s ease-in-out;
+	transition: var(--transition);
 }
 
 .form .submit-button input:hover {
-	background-color: #6770e4;
+	filter: contrast(150%);
 }
 
 /* The alert message box */
@@ -223,26 +224,29 @@ form .input-label {
 	left: 0px;
 	padding: 20px;
 	width: 100%;
-	background-color: var(--error);
+	background-color: var(--errorColor);
 	color: white;
+	font-size: 16px;
 	font-weight: 600;
 	opacity: 0;
 	transition: 0.6s all ease-in-out;
 	display: none;
+	text-align: center;
 }
 
 .alert .close-btn {
-	margin-left: 15px;
-	color: white;
+	color: var(--white);
 	font-weight: 500;
 	float: right;
 	font-size: 30px;
 	line-height: 15px;
+	margin-left: 15px;
+	margin-top: 3px;
 	cursor: pointer;
-	text-align: center;
+	transition: var(--transition);
 }
-.closebtn:hover {
-	color: var(--azure);
+.close-btn:hover {
+	transform: rotate(90deg);
 }
 
 /* ------ loader animation  ------ */

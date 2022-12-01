@@ -1,0 +1,31 @@
+{
+	"name": "Login ProGrupa",
+	"short_name": "Login page",
+	"description": "ProGrupa was established in 2005 and is one of the greatest providers of specialized software.",
+	"start_url": ".",
+	"id": "/",
+	"orientation": "portrait-primary",
+	"background_color": "#f9fafe",
+	"theme_color": "#737cf5",
+	"display": "standalone",
+	"icons": [
+		{
+			"src": "assets/images/progrupa-favicon-icon.png",
+			"sizes": "144x144",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "assets/images/progrupa-logo.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable"
+		},
+		{
+			"src": "assets/images/progrupa-logo2.png",
+			"sizes": "any",
+			"type": "image/png",
+			"purpose": "maskable"
+		}
+	]
+}
