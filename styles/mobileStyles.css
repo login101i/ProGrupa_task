@@ -6,7 +6,7 @@
 		position: fixed;
 		width: 200vw;
 		height: 80vh;
-		top: 330px;
+		top: 400px;
 		left: -50%;
 		overflow: hidden;
 	}
@@ -14,7 +14,7 @@
 		position: fixed;
 		width: 100vw;
 		height: 100vw;
-		top: 650px;
+		top: 800px;
 		left: 0%;
 	}
 	.container {
