@@ -14,17 +14,17 @@ const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // -----------------   DOM manipulation   ----------------- //
 
-//   show/hide password and change eye icon
+//   show/hide password, change eye icon, add atrubutes
 eyeIconContainer.addEventListener('click', () => {
 	if (passwordInput.type === 'password') {
 		passwordInput.type = 'text';
-		eyeIcon.setAttribute('alt', 'password visible');
 		eyeIcon.setAttribute('title', 'password visible');
+		eyeIcon.setAttribute('alt', '');
 		eyeIcon.classList.add('eye-icon-open');
 	} else {
 		passwordInput.type = 'password';
-		eyeIcon.setAttribute('alt', 'password hidden');
 		eyeIcon.setAttribute('title', 'password hidden');
+		eyeIcon.setAttribute('alt', '');
 		eyeIcon.classList.remove('eye-icon-open');
 	}
 });
@@ -46,10 +46,16 @@ loginButton.addEventListener('click', () => {
 	}
 });
 
-// //   hide email error after click on passwordInput
-// passwordInput.addEventListener('click', () => {
-// 	if (!mailFormat.test(emailInput.value) && passwordInput.value) closeAlert();
-// });
+//   hide all inputs required error after click on passwordInput
+passwordInput.addEventListener('input', () => {
+	if (!mailFormat.test(emailInput.value)) return;
+	else {
+		if (mailFormat.test(emailInput.value) && passwordInput.value) closeAlert();
+	}
+});
+
+//  set atribute on load
+eyeIcon.setAttribute('title', 'password hidden');
 
 // -----------------   functions   ----------------- //
 

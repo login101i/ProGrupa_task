@@ -147,7 +147,7 @@ form .input-label {
 	top: -30px;
 	right: 0px;
 	color: var(--shadow);
-		filter: brightness(50%);
+	filter: brightness(50%);
 	text-decoration: none;
 	cursor: pointer;
 	font-weight: 500;
