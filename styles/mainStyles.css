@@ -1,10 +1,9 @@
-/* ===== Google Font Import  ===== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Marhey:wght@300&display=swap');
+/* --------- google fonts import  --------- */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Marhey:wght@300&family=Noto+Sans+Kayah+Li&display=swap');
-/* ----- animations --------- */
 
-@keyframes scaleDown {
+/* --------- animations --------- */
+@keyframes scaleDownCircle {
 	0% {
 		transform: scale(1);
 	}
@@ -12,7 +11,7 @@
 		transform: scale(0.6);
 	}
 }
-@keyframes scaleUp {
+@keyframes scaleUpCircle {
 	0% {
 		transform: scale(0.5);
 	}
@@ -32,19 +31,21 @@
 
 @keyframes shadowAnimation {
 	100% {
-		box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 5px 10px var(--shadow);
 	}
 }
 
 /* -------- styles --------- */
 :root {
-	--white: #f9fafe;
 	--azure: #eff3fe;
-	--lightBlue: #e4ecfd;
 	--blue: #656ddc;
-	--textGrey: lightGrey;
-	--lightGrey: rgba(225, 225, 225, 0.409);
 	--errorColor: #e8c24f;
+	--lightBlue: #e4ecfd;
+	--lightGrey: #d3d3d3;
+	--shadow: #b2b5b280;
+	--textColor: #383838;
+	--white: #f9fafe;
+
 	--transition: 0.2s all ease-in-out;
 }
 
@@ -52,7 +53,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Varela Round', sans-serif;
 	font-display: auto;
 }
 
@@ -66,6 +67,7 @@ body {
 	background-color: var(--white);
 	font-size: 14px;
 	overflow: hidden;
+	color: var(--textColor);
 }
 
 .background,
@@ -75,14 +77,15 @@ body {
 	height: 150vw;
 	border-radius: 50%;
 	background-color: var(--azure);
-	animation: 1.2s ease-in-out 0.5s scaleDown forwards;
+	overflow: hidden;
+	animation: 1.2s ease-in-out 0.5s scaleDownCircle forwards;
 }
 
 .inner-circle {
 	width: 40vw;
 	height: 40vw;
 	background-color: var(--lightBlue);
-	animation: 1s ease-in-out 0s scaleUp forwards;
+	animation: 1s ease-in-out 0s scaleUpCircle forwards;
 }
 
 .container {
@@ -103,13 +106,14 @@ body {
 	height: 80px;
 	width: 100%;
 	background-color: var(--blue);
-	background: linear-gradient(0deg, rgba(249, 250, 254, 1) 0%, var(--blue) 6%);
+	background: linear-gradient(0deg, var(--azure) 0%, var(--blue) 6%);
 }
 
 .container .form-title {
 	font-size: 38px;
 	color: var(--white);
 	font-weight: 600;
+	letter-spacing: 1px;
 }
 
 .container form {
@@ -133,19 +137,22 @@ form .input-label {
 	position: absolute;
 	top: -30px;
 	left: 0px;
-	font-weight: 600;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
 }
 
 .form .input-text {
 	position: absolute;
 	top: -30px;
 	right: 0px;
-	color: var(--textGrey);
+	color: var(--lightGrey);
 	text-decoration: none;
 	cursor: pointer;
 	font-weight: 500;
 	transition: var(--transition);
 }
+
 .form .input-text:hover {
 	filter: brightness(80%);
 }
@@ -159,15 +166,16 @@ form .input-label {
 	border-radius: 5px;
 	border: 1px solid var(--lightBlue);
 	outline: none;
+	font-weight: 400;
 	transition: var(--transition);
 }
 
-.form .input-wrapper input:is(:focus, :valid) {
+.form .input-wrapper input:is(:focus) {
 	border-bottom-color: var(--blue);
 }
 
 .form .input-wrapper input::placeholder {
-	color: var(--textGrey);
+	color: var(--lightGrey);
 }
 
 .form .input-wrapper .eye-icon-container {
@@ -180,13 +188,8 @@ form .input-label {
 	width: 50px;
 	background-color: var(--lightGrey);
 	font-size: 25px;
-	color: darkGrey;
 	cursor: pointer;
 }
-
-/* .form .input-wrapper .show-hide-password-icon i {
-	color: var(--blue);
-} */
 
 .input-wrapper input:is(:focus, :valid) ~ i {
 	color: #737cf5;
@@ -196,28 +199,33 @@ form .input-label {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: 1s all ease-in-out;
 }
 
 .form .submit-button input {
 	width: 120px;
+	height: 40px;
 	border: none;
 	color: #fff;
 	font-size: 18px;
 	font-weight: 600;
-	border-radius: 2px;
+	letter-spacing: 1px;
+	border-radius: 3px;
 	padding: 5px 15px;
 	background-color: var(--blue);
+	box-shadow: 0 5px 10px var(--shadow);
 	cursor: pointer;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 	transition: var(--transition);
 }
 
 .form .submit-button input:hover {
 	filter: contrast(150%);
 }
+.form .submit-button input:active {
+	transform: translateY(2px);
+	box-shadow: 0 2px var(--textColor);
+}
 
-/* The alert message box */
+/* --------- The alert message box  ---------*/
 .alert {
 	position: fixed;
 	top: 0px;
@@ -241,7 +249,6 @@ form .input-label {
 	font-size: 30px;
 	line-height: 15px;
 	margin-left: 15px;
-	margin-top: 3px;
 	cursor: pointer;
 	transition: var(--transition);
 }
@@ -250,16 +257,16 @@ form .input-label {
 }
 
 /* ------ loader animation  ------ */
-
 .loader {
-	align-items: center;
 	display: none;
+	align-items: center;
 	justify-content: center;
 }
+
 .loader:after {
 	content: ' ';
-	width: 25px;
-	height: 25px;
+	width: 29px;
+	height: 29px;
 	border-radius: 50%;
 	border: 6px solid var(--blue);
 	border-color: var(--blue) transparent;

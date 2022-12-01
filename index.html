@@ -26,33 +26,33 @@
 		<div class="container">
 			<div class="form">
 				<div class="title-container"><span class="form-title">ProGrupa</span></div>
-				<form name="loginForm" action="#">
+				<form name="loginForm">
 					<div class="input-wrapper">
 						<span class="input-label">Email address</span>
 						<input
 							type="text"
 							placeholder="Enter your email"
-							required
 							name="email"
 							onchange="validateEmail(document.loginForm.email)"
 							id="emailInput"
+							required
 						/>
 					</div>
 					<div class="input-wrapper">
-						<span class="input-label"> Password</span>
-						<a class="input-text" href="#"> forgot your password sdfsdf?</a>
+						<span class="input-label">Password</span>
+						<a class="input-text" href="#">forgot your password ?</a>
 						<input
 							type="password"
 							class="password"
 							placeholder="Enter your password"
-							required
 							name="password"
 							id="passwordInput"
 							autocomplete="on"
+							required
 						/>
 						<div class="eye-icon-container"><i class="uil uil-eye-slash eye-icon"></i></div>
 					</div>
-					<div class="input-field submit-button">
+					<div class="submit-button">
 						<input type="button" value="Log In" onClick="validateEmail()" id="loginButton" />
 					</div>
 					<!-- button loader and alert info -->

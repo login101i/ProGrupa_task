@@ -1,5 +1,4 @@
-const container = document.querySelector('.container');
-const eyeIcon = document.querySelector('.eye-icon');
+// const container = document.querySelector('.container');
 const passwordField = document.querySelector('.password');
 const loginButton = document.querySelector('.submit-button');
 const emailInput = document.getElementById('emailInput');
@@ -7,6 +6,8 @@ const passwordInput = document.getElementById('passwordInput');
 const alertBox = document.querySelector('.alert');
 const loadAnimation = document.querySelector('.loader');
 const eyeIconContainer = document.querySelector('.eye-icon-container');
+const eyeIcon = document.querySelector('.eye-icon');
+
 const closeBtn = document.querySelector('.close-btn');
 const alert = closeBtn.parentElement;
 
@@ -14,11 +15,11 @@ const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 //   js code to show/hide password and change icon
 eyeIconContainer.addEventListener('click', () => {
-	if (passwordField.type === 'password') {
-		passwordField.type = 'text';
+	if (passwordInput.type === 'password') {
+		passwordInput.type = 'text';
 		eyeIcon.classList.replace('uil-eye-slash', 'uil-eye');
 	} else {
-		passwordField.type = 'password';
+		passwordInput.type = 'password';
 		eyeIcon.classList.replace('uil-eye', 'uil-eye-slash');
 	}
 });
