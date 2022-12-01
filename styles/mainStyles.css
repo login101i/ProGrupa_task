@@ -126,7 +126,7 @@ body {
 	flex-direction: column;
 }
 
-.form .input-wrapper {
+.form-container .input-wrapper {
 	position: relative;
 	height: 40px;
 	width: 100%;
@@ -142,7 +142,7 @@ form .input-label {
 	letter-spacing: 0.5px;
 }
 
-.form .input-text {
+.form-container .input-text {
 	position: absolute;
 	top: -30px;
 	right: 0px;
@@ -153,11 +153,11 @@ form .input-label {
 	transition: var(--transition);
 }
 
-.form .input-text:hover {
+.form-container .input-text:hover {
 	filter: brightness(80%);
 }
 
-.form .input-wrapper input {
+.form-container .input-wrapper input {
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -170,15 +170,15 @@ form .input-label {
 	transition: var(--transition);
 }
 
-.form .input-wrapper input:is(:focus) {
+.form-container .input-wrapper input:is(:focus) {
 	border-bottom-color: var(--blue);
 }
 
-.form .input-wrapper input::placeholder {
+.form-container .input-wrapper input::placeholder {
 	color: var(--lightGrey);
 }
 
-.form .input-wrapper .eye-icon-container {
+.form-container .input-wrapper .eye-icon-container {
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -195,13 +195,13 @@ form .input-label {
 	color: #737cf5;
 }
 
-.form .submit-button {
+.form-container .submit-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.form .submit-button input {
+.form-container .submit-button input {
 	width: 120px;
 	height: 40px;
 	border: none;
@@ -217,10 +217,7 @@ form .input-label {
 	transition: var(--transition);
 }
 
-.form .submit-button input:hover {
-	filter: contrast(150%);
-}
-.form .submit-button input:active {
+.form-container .submit-button input:active {
 	transform: translateY(2px);
 	box-shadow: 0 2px var(--textColor);
 }

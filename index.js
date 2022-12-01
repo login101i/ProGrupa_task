@@ -1,19 +1,18 @@
-// const container = document.querySelector('.container');
-const passwordField = document.querySelector('.password');
-const loginButton = document.querySelector('.submit-button');
 const emailInput = document.getElementById('emailInput');
 const passwordInput = document.getElementById('passwordInput');
+const loginButton = document.querySelector('.submit-button');
 const alertBox = document.querySelector('.alert');
 const loadAnimation = document.querySelector('.loader');
 const eyeIconContainer = document.querySelector('.eye-icon-container');
 const eyeIcon = document.querySelector('.eye-icon');
-
 const closeBtn = document.querySelector('.close-btn');
 const alert = closeBtn.parentElement;
 
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-//   js code to show/hide password and change icon
+// -----------------   DOM manipulation   ----------------- //
+
+//   show/hide password and change icon
 eyeIconContainer.addEventListener('click', () => {
 	if (passwordInput.type === 'password') {
 		passwordInput.type = 'text';
@@ -24,12 +23,11 @@ eyeIconContainer.addEventListener('click', () => {
 	}
 });
 
-//   js code to validate if inputs don't are empty
+//   validate if inputs are filled
 loginButton.addEventListener('click', () => {
 	closeAlert();
 	if (!emailInput.value.match(mailFormat) && emailInput.value) {
 		renderErrorMessage('Invalid email format');
-		return;
 	}
 	if (!emailInput.value || !passwordInput.value) {
 		renderErrorMessage('Please, fill in all fields');
@@ -45,12 +43,12 @@ passwordInput.addEventListener('click', () => {
 	if (!emailInput.value.match(mailFormat) && passwordInput.value) closeAlert();
 });
 
-// -----------------functions-----------------
+
+// -----------------   functions   ----------------- //
 
 function renderErrorMessage(errorText) {
-	// Get the parent of <span class="close-btn"> (<div class="alert">)
+	// Get the parent of <span class="close-btn">
 	alert.removeChild(alert.lastChild);
-
 	const error = document.createElement('div');
 	error.innerHTML = errorText;
 
@@ -60,7 +58,6 @@ function renderErrorMessage(errorText) {
 
 	closeBtn.onclick = function () {
 		alert.style.opacity = '0';
-
 		// Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
 		setTimeout(function () {
 			div.style.display = 'none';
@@ -76,13 +73,13 @@ function validateEmail(emailInput) {
 		return renderErrorMessage('Invalid email format');
 	}
 }
-
+//  hide alert every time button is pressed
 function closeAlert() {
 	alert.style.display = 'none';
 	return false;
 }
 
-// mocking login data and showing load animation
+// 	fake login data fetch and showing load animation
 function showLoader() {
 	loginButton.style.display = 'none';
 	loadAnimation.style.display = 'flex';

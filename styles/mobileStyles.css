@@ -1,24 +1,20 @@
 /* different screen sizes */
 
 @media only screen and (max-width: 420px) {
-	body {
-		min-height: 100vh;
-	}
 	.background,
 	.outer-circle {
-	position: absolute;
+		position: fixed;
 		width: 200vw;
 		height: 80vh;
-		top: 50%;
+		top: 330px;
 		left: -50%;
 		overflow: hidden;
 	}
 	.inner-circle {
-		position: absolute;
+		position: fixed;
 		width: 100vw;
 		height: 100vw;
-		animation: 1s ease-in-out 0s scaleUp forwards;
-		top: 80%;
+		top: 650px;
 		left: 0%;
 	}
 	.container {
@@ -39,7 +35,7 @@
 		background-color: transparent;
 	}
 
-	.form {
+	.form-container {
 		width: 100%;
 		height: 100%;
 		display: flex;
