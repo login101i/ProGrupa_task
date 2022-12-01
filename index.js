@@ -1,10 +1,12 @@
 const emailInput = document.getElementById('emailInput');
 const passwordInput = document.getElementById('passwordInput');
 const loginButton = document.querySelector('.submit-button');
-const alertBox = document.querySelector('.alert');
-const loadAnimation = document.querySelector('.loader');
 const eyeIconContainer = document.querySelector('.eye-icon-container');
-const eyeIcon = document.querySelector('.eye-icon');
+const eyeIcon = document.getElementById('eyeIcon');
+const loadAnimation = document.querySelector('.loader');
+const alertBox = document.querySelector('.alert');
+
+// const eyeIcon = document.querySelector('.eye-icon');
 const closeBtn = document.querySelector('.close-btn');
 const alert = closeBtn.parentElement;
 
@@ -12,21 +14,25 @@ const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 // -----------------   DOM manipulation   ----------------- //
 
-//   show/hide password and change icon
+//   show/hide password and change eye icon
 eyeIconContainer.addEventListener('click', () => {
 	if (passwordInput.type === 'password') {
 		passwordInput.type = 'text';
-		eyeIcon.classList.replace('uil-eye-slash', 'uil-eye');
+		eyeIcon.setAttribute('alt', 'password visible');
+		eyeIcon.setAttribute('title', 'password visible');
+		eyeIcon.classList.add('eye-icon-open');
 	} else {
 		passwordInput.type = 'password';
-		eyeIcon.classList.replace('uil-eye', 'uil-eye-slash');
+		eyeIcon.setAttribute('alt', 'password hidden');
+		eyeIcon.setAttribute('title', 'password hidden');
+		eyeIcon.classList.remove('eye-icon-open');
 	}
 });
 
 //   validate if inputs are filled
 loginButton.addEventListener('click', () => {
 	closeAlert();
-	if (!emailInput.value.match(mailFormat) && emailInput.value) {
+	if (!mailFormat.test(emailInput.value) && emailInput.value) {
 		renderErrorMessage('Invalid email format');
 		return;
 	}
@@ -40,9 +46,10 @@ loginButton.addEventListener('click', () => {
 	}
 });
 
-passwordInput.addEventListener('click', () => {
-	if (!emailInput.value.match(mailFormat) && passwordInput.value) closeAlert();
-});
+// //   hide email error after click on passwordInput
+// passwordInput.addEventListener('click', () => {
+// 	if (!mailFormat.test(emailInput.value) && passwordInput.value) closeAlert();
+// });
 
 // -----------------   functions   ----------------- //
 
@@ -60,20 +67,25 @@ function renderErrorMessage(errorText) {
 		alert.style.opacity = '0';
 		// Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
 		setTimeout(function () {
-			div.style.display = 'none';
+			alert.style.display = 'none';
 		}, 600);
 	};
 }
 
-//   js code to validate email format
-function validateEmail(emailInput) {
-	if (emailInput.value.match(mailFormat)) {
+//   js code to validate email format / remove error when clear emailInput
+function validateEmail(email) {
+	if (!email || !email.value) {
+		closeAlert();
+		return;
+	}
+	if (mailFormat.test(email.value)) {
 		closeAlert();
 	} else {
 		return renderErrorMessage('Invalid email format');
 	}
 }
-//  hide alert every time button is pressed
+
+//  hide alert every time LogInButton is pressed
 function closeAlert() {
 	alert.style.display = 'none';
 	return false;

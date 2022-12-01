@@ -9,6 +9,8 @@ self.addEventListener('install', e => {
 				'./styles/mobileStyles.css',
 				'./assets/images/progrupa-favicon-icon.png',
 				'./assets/images/progrupa-logo.png',
+				'./assets/icons/icon-closed-eye.png',
+				'./assets/icons/icon-eye-opened.png',
 			]);
 		}),
 	);
