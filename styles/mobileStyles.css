@@ -1,4 +1,4 @@
-/* different screen sizes */
+/* ---- orientation portrait ------- */
 
 @media only screen and (max-width: 420px) {
 	.background,
@@ -61,5 +61,25 @@
 	.icon-container {
 		width: 40px;
 		font-size: 24px;
+	}
+}
+
+/* ---- orientation landscape ------- */
+@media (orientation: landscape) {
+	body {
+		height: auto;
+		overflow: scroll;
+	}
+	.background {
+		display: none;
+	}
+
+	.container {
+		width: 80vw;
+		margin:65px;
+	}
+	.loginForm {
+		flex-direction: row;
+		border: 10px solid rgb(36, 83, 27);
 	}
 }
