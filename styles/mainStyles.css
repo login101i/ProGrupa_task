@@ -32,6 +32,7 @@
 @keyframes shadowAnimation {
 	100% {
 		box-shadow: 0 5px 12px var(--shadowColor);
+		-webkit-box-shadow: 0 5px 12px var(--shadowColor);
 	}
 }
 
@@ -231,6 +232,7 @@ form .input-label {
 .form-container .submit-button input:active {
 	transform: translateY(1px);
 	box-shadow: 0 2px 2px var(--secondary);
+	-webkit-box-shadow: 0 2px 2px var(--secondary);
 }
 
 /* --------- The alert message box  ---------*/
