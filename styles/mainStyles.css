@@ -38,7 +38,7 @@
 /* -------- styles --------- */
 :root {
 	--primary: #921a28;
-	--errorColor: #b0ab31;
+	--errorColor: #c2bd33;
 	--secondary: #e4e6f0;
 	--lightGrey: #d3d3d3;
 	--shadowColor: #312a2a80;
@@ -242,7 +242,7 @@ form .input-label {
 	width: 100%;
 	background-color: var(--errorColor);
 	color: var(--secondary);
-	font-size: 18px;
+	font-size: 16px;
 	text-transform: uppercase;
 	font-weight: 800;
 	opacity: 0;
@@ -273,10 +273,10 @@ form .input-label {
 
 .loader:after {
 	content: ' ';
-	width: 27px;
-	height: 27px;
+	width: 28px;
+	height: 28px;
 	border-radius: 50%;
-	border: 6px solid var(--blue);
-	border-color: var(--blue) transparent;
+	border: 6px solid var(--primary);
+	border-color: var(--primary) transparent;
 	animation: loaderAnimation 1.5s linear infinite;
 }
