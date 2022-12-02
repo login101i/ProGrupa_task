@@ -8,7 +8,7 @@
 		transform: scale(1);
 	}
 	100% {
-		transform: scale(0.6);
+		transform: scale(0.33);
 	}
 }
 @keyframes scaleUpCircle {
@@ -31,20 +31,19 @@
 
 @keyframes shadowAnimation {
 	100% {
-		box-shadow: 0 5px 10px var(--shadow);
+		box-shadow: 0 5px 12px var(--shadowColor);
 	}
 }
 
 /* -------- styles --------- */
 :root {
-	--azure: #eff3fe;
-	--blue: #656ddc;
-	--errorColor: #e8c24f;
-	--lightBlue: #e4ecfd;
+	--primary: #921a28;
+	--errorColor: #b0ab31;
+	--secondary: #e4e6f0;
 	--lightGrey: #d3d3d3;
-	--shadow: #b2b5b280;
-	--textColor: #383838;
-	--white: #f9fafe;
+	--shadowColor: #312a2a80;
+	--textColor: #ded6d6;
+	--formBackgroundColor: #393a3e;
 
 	--transition: 0.2s all ease-in-out;
 }
@@ -64,28 +63,35 @@ body {
 	flex-direction: column;
 	min-height: 100vh;
 	width: 100%;
-	background-color: var(--white);
+	background-color: var(--formBackgroundColor);
 	font-size: 14px;
 	overflow: hidden;
 	color: var(--textColor);
+	background-image: url('../assets/images/background_image.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
 }
 
-.background,
-.outer-circle {
+.background {
 	position: absolute;
-	width: 150vw;
-	height: 150vw;
+	width: 2600px;
+	height: 2600px;
 	border-radius: 50%;
-	background-color: var(--azure);
+	background-color: var(--primary);
 	overflow: hidden;
 	animation: 1.2s ease-in-out 0.5s scaleDownCircle forwards;
 }
-
+.outer-circle {
+	box-shadow: 0px 0px 5px 5px var(--primary);
+}
 .inner-circle {
-	width: 40vw;
-	height: 40vw;
-	background-color: var(--lightBlue);
+	width: 520px;
+	height: 520px;
+	background-color: var(--secondary);
 	animation: 1s ease-in-out 0s scaleUpCircle forwards;
+	box-shadow: 0px 0px 2px 2px var(--secondary);
 }
 
 .container {
@@ -99,25 +105,28 @@ body {
 	animation: 1.2s ease-in-out 0.5s shadowAnimation forwards;
 }
 
-.container .title-container {
+.container .header-container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 80px;
 	width: 100%;
-	background-color: var(--blue);
-	background: linear-gradient(0deg, var(--azure) 0%, var(--blue) 6%);
+	padding: 15px;
+	background: linear-gradient(360deg, var(--secondary) 10%, var(--primary) 16%);
+	background: linear-gradient(0deg, var(--formBackgroundColor) 0%, var(--secondary) 4%);
 }
 
-.container .form-title {
-	font-size: 38px;
-	color: var(--white);
-	font-weight: 600;
-	letter-spacing: 1px;
+.form-container .header {
+	background-image: url('../assets/images/progrupa_logo.png');
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 }
 
 .container form {
-	background-color: var(--white);
+	background-color: var(--formBackgroundColor);
 	padding: 10px 40px;
 	height: 320px;
 	display: flex;
@@ -146,7 +155,7 @@ form .input-label {
 	position: absolute;
 	top: -30px;
 	right: 0px;
-	color: var(--shadow);
+	color: var(--secondary);
 	filter: brightness(50%);
 	text-decoration: none;
 	cursor: pointer;
@@ -161,7 +170,7 @@ form .input-label {
 	padding: 0 10px;
 	font-size: 16px;
 	border-radius: 5px;
-	border: 1px solid var(--lightBlue);
+	border: 1px solid var(--secondary);
 	outline: none;
 	font-weight: 400;
 	transition: var(--transition);
@@ -172,7 +181,7 @@ form .input-label {
 }
 
 .form-container .input-wrapper input::placeholder {
-	color: var(--shadow);
+	color: var(--shadowColor);
 }
 
 .form-container .eye-icon-container {
@@ -213,15 +222,15 @@ form .input-label {
 	letter-spacing: 1px;
 	border-radius: 3px;
 	padding: 5px 15px;
-	background-color: var(--blue);
-	box-shadow: 0 5px 10px var(--shadow);
+	background-color: var(--primary);
+	box-shadow: 0 5px 10px var(--shadowColor);
 	cursor: pointer;
 	transition: var(--transition);
 }
 
 .form-container .submit-button input:active {
-	transform: translateY(2px);
-	box-shadow: 0 2px var(--textColor);
+	transform: translateY(1px);
+	box-shadow: 0 2px 2px var(--secondary);
 }
 
 /* --------- The alert message box  ---------*/
@@ -232,9 +241,10 @@ form .input-label {
 	padding: 20px;
 	width: 100%;
 	background-color: var(--errorColor);
-	color: white;
-	font-size: 16px;
-	font-weight: 600;
+	color: var(--secondary);
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 800;
 	opacity: 0;
 	transition: 0.6s all ease-in-out;
 	display: none;
@@ -242,8 +252,7 @@ form .input-label {
 }
 
 .alert .close-btn {
-	color: var(--white);
-	font-weight: 500;
+	font-weight: 800;
 	float: right;
 	font-size: 30px;
 	line-height: 15px;
